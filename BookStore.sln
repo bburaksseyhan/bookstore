@@ -11,9 +11,20 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BookStore.Infrastructure.Da
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BookStore.UI.Mvc", "BookStore.UI.Mvc", "{903E19E0-5C70-47AD-8DF4-73F4CE897354}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookStore.Mvc", "BookStore.Mvc\BookStore.Mvc.csproj", "{09F748F6-6EAA-457C-BA4B-18EBC57ED1F3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{09F748F6-6EAA-457C-BA4B-18EBC57ED1F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09F748F6-6EAA-457C-BA4B-18EBC57ED1F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09F748F6-6EAA-457C-BA4B-18EBC57ED1F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09F748F6-6EAA-457C-BA4B-18EBC57ED1F3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{09F748F6-6EAA-457C-BA4B-18EBC57ED1F3} = {903E19E0-5C70-47AD-8DF4-73F4CE897354}
 	EndGlobalSection
 EndGlobal
