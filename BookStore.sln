@@ -1,6 +1,16 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BookStore.Application", "BookStore.Application", "{FD67DB46-9423-4471-BC97-CB91DFF9992D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BookStore.Domain", "BookStore.Domain", "{38FD589E-2ACC-48C1-AB28-CD636523D5BD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BookStore.Infrastructure.IoC", "BookStore.Infrastructure.IoC", "{4337206E-E090-41D6-850C-41EF29280CF1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BookStore.Infrastructure.Data", "BookStore.Infrastructure.Data", "{015C8E28-324C-4796-AB65-6508B6FF6494}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BookStore.UI.Mvc", "BookStore.UI.Mvc", "{903E19E0-5C70-47AD-8DF4-73F4CE897354}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 	EndGlobalSection
