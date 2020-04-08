@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace BookStore.Mvc.Data.Migrations
+namespace BookStore.Infrastructure.Data.Migrations
 {
-    public partial class InitialMigration : Migration
+    public partial class InitialMigrationSecond : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

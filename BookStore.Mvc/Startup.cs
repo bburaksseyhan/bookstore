@@ -37,7 +37,7 @@ namespace BookStore.Mvc
 
             services.AddDbContext<BookStoreDBContext>(options =>
             {
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+                options.UseSqlServer(Configuration.GetConnectionString("BookStoreDb"));
             });
 
             services.AddControllersWithViews();
