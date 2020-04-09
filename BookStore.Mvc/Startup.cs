@@ -14,6 +14,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using BookStore.Infrastructure.Data.Context;
 using BookStore.Infrastructure.IoC;
+using MediatR;
 
 namespace BookStore.Mvc
 {
@@ -40,6 +41,8 @@ namespace BookStore.Mvc
             {
                 options.UseSqlServer(Configuration.GetConnectionString("BookStoreDb"));
             });
+
+            services.AddMediatR(typeof(Startup));
 
             services.AddControllersWithViews();
             services.AddRazorPages();
