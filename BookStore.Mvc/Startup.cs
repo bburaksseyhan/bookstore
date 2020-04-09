@@ -13,6 +13,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using BookStore.Infrastructure.Data.Context;
+using BookStore.Infrastructure.IoC;
 
 namespace BookStore.Mvc
 {
@@ -42,6 +43,8 @@ namespace BookStore.Mvc
 
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+            RegisterServices(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -73,6 +76,11 @@ namespace BookStore.Mvc
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
+        }
+
+        private static void RegisterServices(IServiceCollection serv)
+        {
+            DependencyContainer.RegisterServices(serv);
         }
     }
 }

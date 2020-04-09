@@ -1,14 +1,13 @@
 ﻿using BookStore.Domain.Interfaces;
 using BookStore.Domain.Models;
 using BookStore.Infrastructure.Data.Context;
-using System;
 using System.Collections.Generic;
 
 namespace BookStore.Infrastructure.Data.Repository
 {
     public class CategoryRepository : ICategoryRepository
     {
-        private BookStoreDBContext _context;
+        private readonly BookStoreDBContext _context;
         public CategoryRepository(BookStoreDBContext context)
         {
             _context = context;
