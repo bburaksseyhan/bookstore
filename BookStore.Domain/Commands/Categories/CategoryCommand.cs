@@ -1,6 +1,6 @@
 ﻿using BookStore.Core.Commands;
 
-namespace BookStore.Domain.Commands
+namespace BookStore.Domain.Categories.Commands
 {
     public class CategoryCommand : Command
     {
@@ -8,6 +8,6 @@ namespace BookStore.Domain.Commands
 
         public string Name { get; protected set; }
 
-        public string Descriptiom { get; protected set; }
+        public string Description { get; protected set; }
     }
 }

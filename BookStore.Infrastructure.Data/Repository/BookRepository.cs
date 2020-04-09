@@ -13,6 +13,12 @@ namespace BookStore.Infrastructure.Data.Repository
             _context = context;
         }
 
+        public void Add(Book book)
+        {
+            _context.Books.Add(book);
+            _context.SaveChanges();
+        }
+
         public IEnumerable<Book> GetBooks()
         {
             return _context.Books;

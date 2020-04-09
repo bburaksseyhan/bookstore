@@ -4,8 +4,12 @@ namespace BookStore.Application.Interfaces
 {
     public interface ICategoryService
     {
-        CategoryViewModel GetCategories();
+        GetCategoryViewModel GetCategories();
 
-        void Create(CategoryViewModel categoryViewModel);
+        void Create(CreateCategoryViewModel categoryViewModel);
+
+        DeleteCategoryViewModel DeleteCategory(int id);
+
+        GetOneCategoryViewModel GetCategory(int id);
     }
 }

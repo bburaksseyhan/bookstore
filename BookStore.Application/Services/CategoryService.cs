@@ -1,6 +1,7 @@
 ﻿using BookStore.Application.Interfaces;
 using BookStore.Application.ViewModel;
 using BookStore.Core.Bus;
+using BookStore.Domain.Categories.Commands;
 using BookStore.Domain.Commands;
 using BookStore.Domain.Interfaces;
 
@@ -18,7 +19,7 @@ namespace BookStore.Application.Services
             _bus = bus;
         }
 
-        public void Create(CategoryViewModel categoryViewModel)
+        public void Create(CreateCategoryViewModel categoryViewModel)
         {
             var createCategoryCommand = new CreateCategoryCommand(
                   categoryViewModel.Name,
@@ -28,12 +29,30 @@ namespace BookStore.Application.Services
             _bus.SendCommand(createCategoryCommand);
         }
 
-        public CategoryViewModel GetCategories()
+        public DeleteCategoryViewModel DeleteCategory(int id)
         {
-            return new CategoryViewModel()
+            return new DeleteCategoryViewModel()
+            {
+                IsSuccess = _categoryRepository.DeleteCategory(id)
+            };
+        }
+
+        public GetCategoryViewModel GetCategories()
+        {
+            return new GetCategoryViewModel()
             {
                 Categories = _categoryRepository.GetCategories()
             };
         }
+
+        public GetOneCategoryViewModel GetCategory(int id)
+        {
+            return new GetOneCategoryViewModel()
+            {
+                Category = _categoryRepository.GetCategory(id)
+            };
+        }
     }
 }
+
+

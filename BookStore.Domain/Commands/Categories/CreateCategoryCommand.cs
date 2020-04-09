@@ -1,11 +1,11 @@
-﻿namespace BookStore.Domain.Commands
+﻿namespace BookStore.Domain.Categories.Commands
 {
     public class CreateCategoryCommand : CategoryCommand
     {
         public CreateCategoryCommand(string name, string description)
         {
             Name = name;
-            Descriptiom = description;
+            Description = description;
         }
     }
 }

@@ -6,5 +6,7 @@ namespace BookStore.Domain.Interfaces
     public interface IBookRepository
     {
         IEnumerable<Book> GetBooks();
+
+        void Add(Book book);
     }
 }

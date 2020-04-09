@@ -1,4 +1,5 @@
-﻿using BookStore.Domain.Commands;
+﻿using BookStore.Domain.Categories.Commands;
+using BookStore.Domain.Commands;
 using BookStore.Domain.Interfaces;
 using BookStore.Domain.Models;
 using MediatR;
@@ -20,8 +21,8 @@ namespace BookStore.Domain.CommandHandlers
         {
             var category = new Category()
             {
-                Name = "Technology",
-                Description = string.Empty
+                Name =  request.Name,
+                Description = request.Description
             };
 
             _categoryRepository.Add(category);

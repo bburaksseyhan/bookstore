@@ -8,5 +8,9 @@ namespace BookStore.Domain.Interfaces
         IEnumerable<Category> GetCategories();
 
         void Add(Category category);
+
+        Category GetCategory(int id);
+
+        bool DeleteCategory(int id);
     }
 }
