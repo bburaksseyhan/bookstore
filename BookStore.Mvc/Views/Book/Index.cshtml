@@ -1,0 +1,15 @@
+﻿@model BookStore.Application.ViewModel.BookViewModel
+
+<div class="container body-content">
+    <div class="row book-content">
+        @foreach (var book in Model.Books)
+        {
+            <div class="book-image-container">
+                <div class="book-image" style="background-image:url(@book.ImageUrl)"></div>
+            </div>
+
+            <span>@book.Name (Author: @book.Author) </span>
+            <span>@book.Language @book.ISBN </span>
+        }
+    </div>
+</div>

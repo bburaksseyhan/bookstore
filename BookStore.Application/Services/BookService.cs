@@ -12,7 +12,7 @@ namespace BookStore.Application.Services
             _bookRepository = bookRepository;
         }
 
-        public BookViewModel Books()
+        public BookViewModel GetBooks()
         {
             return new BookViewModel()
             {

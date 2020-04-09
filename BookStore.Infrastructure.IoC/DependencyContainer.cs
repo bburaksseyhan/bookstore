@@ -12,9 +12,11 @@ namespace BookStore.Infrastructure.IoC
         {
             //Application Layer
             services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<IBookService, BookService>();
 
             //Data Layer
             services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<IBookRepository, BookRepository>();
         }
     }
 }
