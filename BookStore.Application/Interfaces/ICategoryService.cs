@@ -1,5 +1,4 @@
 ﻿using BookStore.Application.ViewModel;
-using System.Collections.Generic;
 
 namespace BookStore.Application.Interfaces
 {

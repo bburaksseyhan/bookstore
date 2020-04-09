@@ -3,8 +3,8 @@ using System.Collections.Generic;
 
 namespace BookStore.Domain.Interfaces
 {
-    public interface ICategoryRepository
+    public interface IBookRepository
     {
-        IEnumerable<Category> GetCategories();
+        IEnumerable<Book> GetBooks();
     }
 }

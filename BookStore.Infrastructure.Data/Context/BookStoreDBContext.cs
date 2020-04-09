@@ -1,9 +1,5 @@
 ﻿using BookStore.Domain.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace BookStore.Infrastructure.Data.Context
 {
     public class BookStoreDBContext : DbContext
@@ -14,5 +10,7 @@ namespace BookStore.Infrastructure.Data.Context
         }
 
         public DbSet<Category> Categories { get; set; }
+
+        public DbSet<Book> Books { get; set; }
     }
 }
