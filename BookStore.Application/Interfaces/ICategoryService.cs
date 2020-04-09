@@ -1,10 +1,11 @@
 ﻿using BookStore.Application.ViewModel;
+using System.Collections.Generic;
 
 namespace BookStore.Application.Interfaces
 {
     public interface ICategoryService
     {
-        GetCategoryViewModel GetCategories();
+        IEnumerable<GetCategoryViewModel> GetCategories();
 
         void Create(CreateCategoryViewModel categoryViewModel);
 

@@ -1,11 +1,12 @@
 ﻿using BookStore.Domain.Models;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BookStore.Domain.Interfaces
 {
     public interface ICategoryRepository
     {
-        IEnumerable<Category> GetCategories();
+        IQueryable<Category> GetCategories();
 
         void Add(Category category);
 

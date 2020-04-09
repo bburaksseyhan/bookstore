@@ -18,9 +18,7 @@ namespace BookStore.Api.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            var result = _categoryService.GetCategories();
-
-            return Ok(result);
+            return Ok(_categoryService.GetCategories());
         }
 
         [HttpGet]

@@ -15,6 +15,7 @@ using Microsoft.Extensions.Hosting;
 using BookStore.Infrastructure.Data.Context;
 using BookStore.Infrastructure.IoC;
 using MediatR;
+using BookStore.Mvc.Configurations;
 
 namespace BookStore.Mvc
 {
@@ -46,6 +47,8 @@ namespace BookStore.Mvc
 
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+            services.RegisterAutoMapper();
 
             RegisterServices(services);
         }

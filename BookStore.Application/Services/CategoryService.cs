@@ -1,9 +1,11 @@
-﻿using BookStore.Application.Interfaces;
+﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
+using BookStore.Application.Interfaces;
 using BookStore.Application.ViewModel;
 using BookStore.Core.Bus;
 using BookStore.Domain.Categories.Commands;
-using BookStore.Domain.Commands;
 using BookStore.Domain.Interfaces;
+using System.Collections.Generic;
 
 namespace BookStore.Application.Services
 {
@@ -12,21 +14,18 @@ namespace BookStore.Application.Services
         private readonly ICategoryRepository _categoryRepository;
 
         private readonly IMediatorHandler _bus;
+        private readonly IMapper _autoMapper;
 
-        public CategoryService(ICategoryRepository categoryRepository, IMediatorHandler bus)
+        public CategoryService(ICategoryRepository categoryRepository, IMediatorHandler bus, IMapper autoMapper)
         {
             _categoryRepository = categoryRepository;
             _bus = bus;
+            _autoMapper = autoMapper;
         }
 
         public void Create(CreateCategoryViewModel categoryViewModel)
         {
-            var createCategoryCommand = new CreateCategoryCommand(
-                  categoryViewModel.Name,
-                  categoryViewModel.Description
-                );
-
-            _bus.SendCommand(createCategoryCommand);
+            _bus.SendCommand(_autoMapper.Map<CreateCategoryCommand>(categoryViewModel));
         }
 
         public DeleteCategoryViewModel DeleteCategory(int id)
@@ -37,12 +36,10 @@ namespace BookStore.Application.Services
             };
         }
 
-        public GetCategoryViewModel GetCategories()
+        public IEnumerable<GetCategoryViewModel> GetCategories()
         {
-            return new GetCategoryViewModel()
-            {
-                Categories = _categoryRepository.GetCategories()
-            };
+            return _categoryRepository.GetCategories()
+                                      .ProjectTo<GetCategoryViewModel>(_autoMapper.ConfigurationProvider);
         }
 
         public GetOneCategoryViewModel GetCategory(int id)

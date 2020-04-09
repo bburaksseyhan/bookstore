@@ -1,3 +1,4 @@
+using BookStore.Api.Configurations;
 using BookStore.Infrastructure.Data.Context;
 using BookStore.Infrastructure.IoC;
 using MediatR;
@@ -33,6 +34,8 @@ namespace BookStore.Api
             });
 
             services.AddMediatR(typeof(Startup));
+
+            services.RegisterAutoMapper();
 
             RegisterServices(services);
 

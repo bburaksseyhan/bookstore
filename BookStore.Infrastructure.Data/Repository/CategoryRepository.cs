@@ -1,7 +1,6 @@
 ﻿using BookStore.Domain.Interfaces;
 using BookStore.Domain.Models;
 using BookStore.Infrastructure.Data.Context;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace BookStore.Infrastructure.Data.Repository
@@ -37,7 +36,7 @@ namespace BookStore.Infrastructure.Data.Repository
             return result;
         }
 
-        public IEnumerable<Category> GetCategories()
+        public IQueryable<Category> GetCategories()
         {
             return _context.Categories;
         }
