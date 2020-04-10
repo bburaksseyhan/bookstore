@@ -9,8 +9,8 @@ namespace BookStore.Application.Interfaces
 
         void Create(CreateCategoryViewModel categoryViewModel);
 
-        DeleteCategoryViewModel DeleteCategory(int id);
+        BaseDeleteViewModel DeleteCategory(int id);
 
-        GetOneCategoryViewModel GetCategory(int id);
+        CategoryDetailsViewModel GetCategory(int id);
     }
 }

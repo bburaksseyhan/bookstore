@@ -1,4 +1,4 @@
-﻿namespace BookStore.Domain.Categories.Commands
+﻿namespace BookStore.Domain.CategoryCommands.Commands
 {
     public class CreateCategoryCommand : CategoryCommand
     {

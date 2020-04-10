@@ -1,5 +1,4 @@
 ﻿using BookStore.Domain.Models;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace BookStore.Domain.Interfaces

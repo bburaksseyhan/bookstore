@@ -1,8 +1,8 @@
-﻿@model BookStore.Application.ViewModel.BookViewModel
+﻿@model IEnumerable<BookStore.Application.ViewModel.GetBookViewModel>
 
 <div class="container body-content">
     <div class="row book-content">
-        @foreach (var book in Model.Books)
+        @foreach (var book in Model)
         {
             <div class="book-image-container">
                 <div class="book-image" style="background-image:url(@book.ImageUrl)"></div>

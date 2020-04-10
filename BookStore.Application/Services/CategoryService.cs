@@ -3,7 +3,7 @@ using AutoMapper.QueryableExtensions;
 using BookStore.Application.Interfaces;
 using BookStore.Application.ViewModel;
 using BookStore.Core.Bus;
-using BookStore.Domain.Categories.Commands;
+using BookStore.Domain.CategoryCommands.Commands;
 using BookStore.Domain.Interfaces;
 using System.Collections.Generic;
 
@@ -28,11 +28,11 @@ namespace BookStore.Application.Services
             _bus.SendCommand(_autoMapper.Map<CreateCategoryCommand>(categoryViewModel));
         }
 
-        public DeleteCategoryViewModel DeleteCategory(int id)
+        public BaseDeleteViewModel DeleteCategory(int id)
         {
-            return new DeleteCategoryViewModel()
+            return new BaseDeleteViewModel()
             {
-                IsSuccess = _categoryRepository.DeleteCategory(id)
+                 IsDeleted = _categoryRepository.DeleteCategory(id)
             };
         }
 
@@ -42,9 +42,9 @@ namespace BookStore.Application.Services
                                       .ProjectTo<GetCategoryViewModel>(_autoMapper.ConfigurationProvider);
         }
 
-        public GetOneCategoryViewModel GetCategory(int id)
+        public CategoryDetailsViewModel GetCategory(int id)
         {
-            return new GetOneCategoryViewModel()
+            return new CategoryDetailsViewModel()
             {
                 Category = _categoryRepository.GetCategory(id)
             };

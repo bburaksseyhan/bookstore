@@ -1,4 +1,5 @@
-﻿using BookStore.Application.Interfaces;
+﻿using AutoMapper;
+using BookStore.Application.Interfaces;
 using BookStore.Application.ViewModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -9,6 +10,7 @@ namespace BookStore.Mvc.Controllers
     public class BookController : Controller
     {
         private readonly IBookService _bookService;
+
         public BookController(IBookService bookService)
         {
             _bookService = bookService;
@@ -16,9 +18,7 @@ namespace BookStore.Mvc.Controllers
 
         public IActionResult Index()
         {
-            BookViewModel model = _bookService.GetBooks();
-
-            return View(model);
+            return View(_bookService.GetBooks());
         }
     }
 }

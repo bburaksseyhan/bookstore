@@ -2,8 +2,8 @@
 
 namespace BookStore.Application.ViewModel
 {
-    public class GetOneCategoryViewModel
+    public class BookDetailsViewModel
     {
-        public Category Category { get; set; }
+        public Book Book { get; set; }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using BookStore.Core.Commands;
 
-namespace BookStore.Domain.Commands
+namespace BookStore.Domain.BookCommands.Commands
 {
     public abstract class BookCommand : Command
     {

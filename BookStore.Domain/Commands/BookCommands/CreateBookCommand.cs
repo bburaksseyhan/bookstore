@@ -1,9 +1,5 @@
-﻿using BookStore.Core.Commands;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace BookStore.Domain.Commands
+﻿
+namespace BookStore.Domain.BookCommands.Commands
 {
     public class CreateBookCommand : BookCommand
     {

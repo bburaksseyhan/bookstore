@@ -1,5 +1,4 @@
-﻿using BookStore.Domain.Categories.Commands;
-using BookStore.Domain.Commands;
+﻿using BookStore.Domain.CategoryCommands.Commands;
 using BookStore.Domain.Interfaces;
 using BookStore.Domain.Models;
 using MediatR;

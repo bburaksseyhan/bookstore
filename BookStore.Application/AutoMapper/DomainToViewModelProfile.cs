@@ -8,8 +8,13 @@ namespace BookStore.Application.AutoMapper
     {
         public DomainToViewModelProfile()
         {
+            //category mapper
             CreateMap<Category, CreateCategoryViewModel>();
             CreateMap<Category, GetCategoryViewModel>();
+
+            //book mapper
+            CreateMap<Book, CreateBookViewModel>();
+            CreateMap<Book, GetBooksViewModel>();
         }
     }
 }

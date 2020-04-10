@@ -1,9 +1,8 @@
 ﻿using BookStore.Application.Interfaces;
 using BookStore.Application.Services;
 using BookStore.Core.Bus;
-using BookStore.Domain.Categories.Commands;
+using BookStore.Domain.CategoryCommands.Commands;
 using BookStore.Domain.CommandHandlers;
-using BookStore.Domain.Commands;
 using BookStore.Domain.Interfaces;
 using BookStore.Infrastructure.Bus;
 using BookStore.Infrastructure.Data.Context;

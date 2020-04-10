@@ -16,13 +16,14 @@ namespace BookStore.Api.Controllers
         }
 
         [HttpGet]
+        [Route("all")]
         public IActionResult Get()
         {
             return Ok(_categoryService.GetCategories());
         }
 
         [HttpGet]
-        [Route("category")]
+        [Route("detail")]
         public IActionResult GetCategory([FromHeader]int categoryId)
         {
             var result = _categoryService.GetCategory(categoryId);
