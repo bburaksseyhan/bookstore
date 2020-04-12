@@ -1,9 +1,11 @@
 ﻿using BookStore.Application.Interfaces;
 using BookStore.Application.ViewModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookStore.Api.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/v1/[controller]")]
     public class CategoryController : ControllerBase

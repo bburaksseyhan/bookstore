@@ -15,6 +15,9 @@ namespace BookStore.Application.AutoMapper
             //book mapper
             CreateMap<Book, CreateBookViewModel>();
             CreateMap<Book, GetBooksViewModel>();
+
+            //user mapper
+            CreateMap<User, SignUpViewModel>();
         }
     }
 }
