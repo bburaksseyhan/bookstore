@@ -1,16 +1,8 @@
 ﻿using BookStore.Domain.Models;
-using System.Linq;
 
 namespace BookStore.Domain.Interfaces
 {
-    public interface IBookRepository
+    public interface IBookRepository : IBaseRepository<Book>
     {
-        IQueryable<Book> GetBooks();
-
-        void Add(Book book);
-
-        Book GetBook(int id);
-
-        bool DeleteBook(int id);
     }
 }

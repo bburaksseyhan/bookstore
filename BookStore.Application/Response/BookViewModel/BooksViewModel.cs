@@ -1,7 +1,6 @@
-﻿
-namespace BookStore.Application.ViewModel
+﻿namespace BookStore.Application.Response.BookViewModel
 {
-    public class GetBooksViewModel
+    public class BooksViewModel
     {
         public int Id { get; set; }
 

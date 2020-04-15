@@ -5,6 +5,9 @@ using BookStore.Application.ViewModel;
 using BookStore.Core.Bus;
 using BookStore.Domain.Commands.AuthCommands;
 using BookStore.Domain.Interfaces;
+using System;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace BookStore.Application.Services
 {
@@ -15,7 +18,7 @@ namespace BookStore.Application.Services
         private IMediatorHandler _bus;
 
         public AuthService(IAuthRepository authRepository,
-                           IMapper autoMapper, 
+                           IMapper autoMapper,
                            IMediatorHandler bus)
         {
             _authRepository = authRepository;
@@ -23,12 +26,14 @@ namespace BookStore.Application.Services
             _bus = bus;
         }
 
-        public SignInViewModel SignIn(string emailAddress, string password)
+        public string Descrypt(string encryptedText, string password)
         {
-            return new SignInViewModel
-            {
-                IsSuccess = _authRepository.SignIn(emailAddress, password)
-            };
+            return null;
+        }
+
+        public string Encrypt(string plainText, string password)
+        {
+            return null;
         }
 
         public void SignUp(SignUpViewModel signUpViewModel)

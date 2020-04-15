@@ -1,16 +1,8 @@
-﻿using BookStore.Application.ViewModel;
-using System.Collections.Generic;
+﻿using BookStore.Application.Response.BookViewModel;
 
 namespace BookStore.Application.Interfaces
 {
-    public interface IBookService
+    public interface IBookService : IBaseService<BooksViewModel, int>
     {
-        IEnumerable<GetBooksViewModel> GetBooks();
-
-        void Create(CreateBookViewModel bookViewModel);
-
-        BaseDeleteViewModel DeleteCategory(int id);
-
-        BookDetailsViewModel GetCategory(int id);
     }
 }

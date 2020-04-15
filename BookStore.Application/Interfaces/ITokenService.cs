@@ -7,11 +7,9 @@ namespace BookStore.Application.Interfaces
     {
         string CreateRefreshToken();
 
-        Dictionary<string, object> GetToken(string emailAddress);
-
+        Dictionary<string, object> GetAccessToken(string emailAddress);
+       
         bool ValidateToken(string token);
-
-        string GetRefreshToken(string refreshToken);
 
         bool UpdateUserTokens(UpdateUserViewModel updateUserViewModel);
     }

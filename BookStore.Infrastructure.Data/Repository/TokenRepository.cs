@@ -1,6 +1,7 @@
 ﻿using BookStore.Domain.Interfaces;
 using BookStore.Infrastructure.Data.Context;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Linq;
 
 namespace BookStore.Infrastructure.Data.Repository
@@ -13,14 +14,9 @@ namespace BookStore.Infrastructure.Data.Repository
             _context = context;
         }
 
-        public string GetRefreshToken(string refreshToken)
+        public bool UpdateUserToken(int id, string token, DateTime expiredDate)
         {
-            return _context.Users.FirstOrDefault(x => x.RefreshToken == refreshToken).RefreshToken;
-        }
-
-        public bool UpdateUserToken(int id, string refreshToken, string token)
-        {
-            if (id > 0 && string.IsNullOrEmpty(refreshToken) && string.IsNullOrEmpty(token))
+            if (id > 0 && string.IsNullOrEmpty(token))
                 return false;
 
             var getUser = _context.Users.SingleOrDefault(x => x.Id == id);
@@ -28,9 +24,9 @@ namespace BookStore.Infrastructure.Data.Repository
             if (getUser == null)
                 return false;
 
-            getUser.RefreshToken = refreshToken;
             getUser.Token = token;
-
+            getUser.ExpiredDate = expiredDate;
+            
             _context.Entry(getUser).State = EntityState.Modified;
 
             return _context.SaveChanges() > 0;

@@ -1,13 +1,13 @@
-﻿using BookStore.Application.Interfaces;
-using BookStore.Application.ViewModel;
+﻿using BookStore.Api.Configurations;
+using BookStore.Application.Interfaces;
+using BookStore.Application.Response.BookViewModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookStore.Api.Controllers
 {
-    [Authorize]
-    [Route("api/[controller]")]
     [ApiController]
+    [Route(RouteConfig.Base)]
     public class BookController : ControllerBase
     {
         private readonly IBookService _bookService;
@@ -18,16 +18,18 @@ namespace BookStore.Api.Controllers
         }
 
         [HttpGet]
-        [Route("all")]
+        [Route(RouteConfig.Book.GetAll)]
         public IActionResult GetBooks()
         {
-            return Ok(_bookService.GetBooks());
+            return Ok(_bookService.GetAll());
         }
 
+        [Authorize]
         [HttpPost]
-        public IActionResult Post([FromBody] CreateBookViewModel createBookViewModel)
+        [Route(RouteConfig.Book.Create)]
+        public IActionResult Post([FromBody] BooksViewModel createBookViewModel)
         {
-            _bookService.Create(createBookViewModel);
+            _bookService.Add(createBookViewModel);
 
             return Ok(createBookViewModel);
         }

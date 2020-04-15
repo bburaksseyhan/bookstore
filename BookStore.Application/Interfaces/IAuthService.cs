@@ -4,8 +4,10 @@ namespace BookStore.Application.Interfaces
 {
     public interface IAuthService
     {
-        SignInViewModel SignIn(string emailAddress, string password);
-
         void SignUp(SignUpViewModel signUpViewModel);
+
+        string Encrypt(string plainText, string password);
+
+        string Descrypt(string encryptedText, string password);
     }
 }

@@ -1,7 +1,8 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using BookStore.Application.Interfaces;
-using BookStore.Application.ViewModel;
+using BookStore.Application.Response;
+using BookStore.Application.Response.BookViewModel;
 using BookStore.Core.Bus;
 using BookStore.Domain.BookCommands.Commands;
 using BookStore.Domain.Interfaces;
@@ -15,7 +16,7 @@ namespace BookStore.Application.Services
         private readonly IMediatorHandler _bus;
         private readonly IMapper _autoMapper;
 
-        public BookService(IBookRepository bookRepository, 
+        public BookService(IBookRepository bookRepository,
                            IMediatorHandler bus,
                            IMapper autoMapper)
         {
@@ -24,42 +25,44 @@ namespace BookStore.Application.Services
             _autoMapper = autoMapper;
         }
 
-        public void Create(CreateBookViewModel bookViewModel)
+        public void Add(BooksViewModel categoryViewModel)
         {
-            #region if you do not use automapper
-            //var createBookCommand = new CreateBookCommand(
-            //      categoryId: bookViewModel.CategoryId,
-            //      isbn: bookViewModel.ISBN,
-            //      name: bookViewModel.Name,
-            //      language: bookViewModel.Language,
-            //      author: bookViewModel.Author,
-            //      publisher: bookViewModel.Publisher,
-            //      description: bookViewModel.Description,
-            //      imageUrl: bookViewModel.ImageUrl
-            //    );
-            #endregion
+            var createBookCommand = new CreateBookCommand(
+                  categoryId: categoryViewModel.CategoryId,
+                  isbn: categoryViewModel.ISBN,
+                  name: categoryViewModel.Name,
+                  language: categoryViewModel.Language,
+                  author: categoryViewModel.Author,
+                  publisher: categoryViewModel.Publisher,
+                  description: categoryViewModel.Description,
+                  imageUrl: categoryViewModel.ImageUrl
+                );
 
-            _bus.SendCommand(_autoMapper.Map<CreateBookCommand>(bookViewModel));
+            _bus.SendCommand(createBookCommand);
+
+            //_bus.SendCommand(_autoMapper.Map<CreateBookCommand>(categoryViewModel));
         }
 
-        public BaseDeleteViewModel DeleteCategory(int id)
+        public BaseResponse<BooksViewModel> Detail(int id)
         {
-            return new BaseDeleteViewModel()
+            var detail = _bookRepository.Detail(id);
+
+            return new BaseResponse<BooksViewModel>()
             {
-                 IsDeleted = _bookRepository.DeleteBook(id)
+                Data = _autoMapper.Map<BooksViewModel>(detail)
             };
         }
 
-        public IEnumerable<GetBooksViewModel> GetBooks()
+        public IEnumerable<BooksViewModel> GetAll()
         {
-            return _bookRepository.GetBooks().ProjectTo<GetBooksViewModel>(_autoMapper.ConfigurationProvider);
+            return _bookRepository.GetAll().ProjectTo<BooksViewModel>(_autoMapper.ConfigurationProvider);
         }
 
-        public BookDetailsViewModel GetCategory(int id)
+        public BaseResponse<bool> Remove(int id)
         {
-            return new BookDetailsViewModel()
+            return new BaseResponse<bool>()
             {
-                Book = _bookRepository.GetBook(id)
+                IsSuccess = _bookRepository.Remove(id)
             };
         }
     }

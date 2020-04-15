@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BookStore.Domain.Models
 {
@@ -20,9 +18,9 @@ namespace BookStore.Domain.Models
 
         public string Token { get; set; }
 
-        public DateTime ExpiredDate { get; set; }
-
         public string RefreshToken { get; set; }
+
+        public DateTime ExpiredDate { get; set; }
 
         public bool IsActive { get; set; }
 

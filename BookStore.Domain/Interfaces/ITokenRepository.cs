@@ -1,9 +1,9 @@
-﻿namespace BookStore.Domain.Interfaces
+﻿using System;
+
+namespace BookStore.Domain.Interfaces
 {
     public interface ITokenRepository
     {
-        string GetRefreshToken(string refreshToken);
-
-        bool UpdateUserToken(int id, string refreshToken, string token);
+        bool UpdateUserToken(int id, string token, DateTime expiredDate);
     }
 }

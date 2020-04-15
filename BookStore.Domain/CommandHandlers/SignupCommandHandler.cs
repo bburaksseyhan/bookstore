@@ -28,7 +28,6 @@ namespace BookStore.Domain.CommandHandlers
                 RePassword = request.RePassword,
                 Token = request.Token,
                 ExpiredDate = request.ExpiredDate,
-                RefreshToken = request.RefreshToken,
                 IsActive = request.IsActive,
                 CreatedDate = request.CreatedDate,
                 DeletedDate = request.DeletedDate,

@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using BookStore.Application.Response;
+using BookStore.Application.Response.BookViewModel;
 using BookStore.Application.ViewModel;
 using BookStore.Domain.Models;
 
@@ -14,7 +16,7 @@ namespace BookStore.Application.AutoMapper
 
             //book mapper
             CreateMap<Book, CreateBookViewModel>();
-            CreateMap<Book, GetBooksViewModel>();
+            CreateMap<Book, BooksViewModel>();
 
             //user mapper
             CreateMap<User, SignUpViewModel>();

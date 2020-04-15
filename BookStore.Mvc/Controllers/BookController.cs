@@ -16,9 +16,9 @@ namespace BookStore.Mvc.Controllers
             _bookService = bookService;
         }
 
-        public IActionResult Index()
-        {
-            return View(_bookService.GetBooks());
-        }
+        //public IActionResult Index()
+        //{
+        //    return View(_bookService.GetAll());
+        //}
     }
 }

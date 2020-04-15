@@ -19,31 +19,27 @@ namespace BookStore.Infrastructure.Data.Repository
             _context.SaveChanges();
         }
 
-        public bool DeleteBook(int id)
-        {
-            bool result = false;
-
-            var book = GetBook(id);
-
-            if (book == null)
-            {
-                return result = false;
-            }
-
-            _context.Books.Remove(book);
-            result = _context.SaveChanges() > 0;
-
-            return result;
-        }
-
-        public Book GetBook(int id)
+        public Book Detail(int id)
         {
             return _context.Books.Where(x => x.Id == id).FirstOrDefault();
         }
 
-        public IQueryable<Book> GetBooks()
+        public IQueryable<Book> GetAll()
         {
             return _context.Books;
+        }
+
+        public bool Remove(int id)
+        {
+            var book = Detail(id);
+
+            if (book == null)
+            {
+                return false;
+            }
+
+            _context.Books.Remove(book);
+            return _context.SaveChanges() > 0;
         }
     }
 }

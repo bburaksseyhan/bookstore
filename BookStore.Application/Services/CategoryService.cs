@@ -34,13 +34,13 @@ namespace BookStore.Application.Services
         {
             return new BaseDeleteViewModel()
             {
-                 IsDeleted = _categoryRepository.DeleteCategory(id)
+                 IsDeleted = _categoryRepository.Remove(id)
             };
         }
 
         public IEnumerable<GetCategoryViewModel> GetCategories()
         {
-            return _categoryRepository.GetCategories()
+            return _categoryRepository.GetAll()
                                       .ProjectTo<GetCategoryViewModel>(_autoMapper.ConfigurationProvider);
         }
 
@@ -48,7 +48,7 @@ namespace BookStore.Application.Services
         {
             return new CategoryDetailsViewModel()
             {
-                Category = _categoryRepository.GetCategory(id)
+                Category = _categoryRepository.Detail(id)
             };
         }
     }

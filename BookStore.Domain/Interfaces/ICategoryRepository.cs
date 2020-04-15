@@ -1,16 +1,8 @@
 ﻿using BookStore.Domain.Models;
-using System.Linq;
 
 namespace BookStore.Domain.Interfaces
 {
-    public interface ICategoryRepository
+    public interface ICategoryRepository : IBaseRepository<Category>
     {
-        IQueryable<Category> GetCategories();
-
-        void Add(Category category);
-
-        Category GetCategory(int id);
-
-        bool DeleteCategory(int id);
     }
 }

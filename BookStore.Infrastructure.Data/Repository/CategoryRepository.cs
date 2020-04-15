@@ -19,11 +19,21 @@ namespace BookStore.Infrastructure.Data.Repository
             _context.SaveChanges();
         }
 
-        public bool DeleteCategory(int id)
+        public Category Detail(int id)
+        {
+            return _context.Categories.Where(x => x.Id == id).FirstOrDefault();
+        }
+
+        public IQueryable<Category> GetAll()
+        {
+            return _context.Categories;
+        }
+
+        public bool Remove(int id)
         {
             bool result = false;
 
-            var category = GetCategory(id);
+            var category = Detail(id);
 
             if (category == null)
             {
@@ -34,16 +44,6 @@ namespace BookStore.Infrastructure.Data.Repository
             result = _context.SaveChanges() > 0;
 
             return result;
-        }
-
-        public IQueryable<Category> GetCategories()
-        {
-            return _context.Categories;
-        }
-
-        public Category GetCategory(int id)
-        {
-            return _context.Categories.Where(x => x.Id == id).FirstOrDefault();
         }
     }
 }

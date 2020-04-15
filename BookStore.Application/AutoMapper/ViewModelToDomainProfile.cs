@@ -17,7 +17,7 @@ namespace BookStore.Application.AutoMapper
                 .ConvertUsing(x => new CreateBookCommand(x.CategoryId, x.ISBN, x.Name, x.Language, x.Author, x.Publisher, x.Description, x.ImageUrl));
 
             CreateMap<SignUpViewModel, CreateUserCommand>()
-                .ConvertUsing(x => new CreateUserCommand(x.Id, x.FirstName, x.LastName, x.Email, x.Password, x.RePassword, x.Token, x.ExpiredDate, x.RefreshToken, x.IsActive, x.CreatedDate, x.DeletedDate, x.UpdateDate));
+                .ConvertUsing(x => new CreateUserCommand(x.FirstName, x.LastName, x.Email, x.Password, x.RePassword));
         }
     }
 }

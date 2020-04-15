@@ -1,4 +1,5 @@
-﻿using BookStore.Application.Interfaces;
+﻿using BookStore.Api.Configurations;
+using BookStore.Application.Interfaces;
 using BookStore.Application.ViewModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -7,7 +8,7 @@ namespace BookStore.Api.Controllers
 {
     [Authorize]
     [ApiController]
-    [Route("api/v1/[controller]")]
+    [Route(RouteConfig.Base)]
     public class CategoryController : ControllerBase
     {
         private readonly ICategoryService _categoryService;
@@ -18,14 +19,14 @@ namespace BookStore.Api.Controllers
         }
 
         [HttpGet]
-        [Route("all")]
+        [Route(RouteConfig.Category.GetAll)]
         public IActionResult Get()
         {
             return Ok(_categoryService.GetCategories());
         }
 
         [HttpGet]
-        [Route("detail")]
+        [Route(RouteConfig.Category.Detail)]
         public IActionResult GetCategory([FromHeader]int categoryId)
         {
             var result = _categoryService.GetCategory(categoryId);
@@ -34,6 +35,7 @@ namespace BookStore.Api.Controllers
         }
 
         [HttpPost]
+        [Route(RouteConfig.Category.Create)]
         public IActionResult Post([FromBody] CreateCategoryViewModel categoryViewModel)
         {
             _categoryService.Create(categoryViewModel);
@@ -42,7 +44,7 @@ namespace BookStore.Api.Controllers
         }
 
         [HttpPost]
-        [Route("delete")]
+        [Route(RouteConfig.Category.Delete)]
         public IActionResult Delete([FromHeader]int categoryId)
         {
             var result = _categoryService.DeleteCategory(categoryId);
