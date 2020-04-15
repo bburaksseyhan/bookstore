@@ -16,7 +16,9 @@ namespace BookStore.Application.Services
         private readonly IMediatorHandler _bus;
         private readonly IMapper _autoMapper;
 
-        public CategoryService(ICategoryRepository categoryRepository, IMediatorHandler bus, IMapper autoMapper)
+        public CategoryService(ICategoryRepository categoryRepository,
+                               IMediatorHandler bus,
+                               IMapper autoMapper)
         {
             _categoryRepository = categoryRepository;
             _bus = bus;

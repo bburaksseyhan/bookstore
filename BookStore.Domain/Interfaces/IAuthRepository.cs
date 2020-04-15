@@ -7,9 +7,5 @@ namespace BookStore.Domain.Interfaces
         bool SignIn(string emailAddress, string password);
 
         bool SignUp(User user);
-
-        User FindUser(string emailAddress, string password);
-
-        User FindUser(string emailAddress);
     }
 }

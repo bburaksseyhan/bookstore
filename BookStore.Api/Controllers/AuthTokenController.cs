@@ -1,8 +1,7 @@
-﻿using BookStore.Api.Helper;
-using BookStore.Application.Interfaces;
+﻿using BookStore.Application.Interfaces;
 using BookStore.Application.ViewModel;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
+using System.Collections.Generic;
 
 namespace BookStore.Api.Controllers
 {
@@ -10,29 +9,39 @@ namespace BookStore.Api.Controllers
     [ApiController]
     public class AuthTokenController : ControllerBase
     {
-        private readonly IConfiguration _configuration;
         private readonly IAuthService _authService;
+        private readonly IUserService _userService;
+        private readonly ITokenService _tokenService;
 
 
-        public AuthTokenController(IConfiguration configuration, IAuthService authService)
+        public AuthTokenController(IAuthService authService,
+                                   IUserService userService,
+                                   ITokenService tokenService)
         {
-            _configuration = configuration;
             _authService = authService;
+            _userService = userService;
+            _tokenService = tokenService;
         }
 
         [HttpPost]
         [Route("token")]
         public IActionResult GetToken([FromBody]AuthViewModel authViewModel)
         {
-            var result = _authService.GetUser(authViewModel.EmailAddress);
+            var token = new Dictionary<string, object>();
 
-            JwtHelper jwtHelper = new JwtHelper(_configuration);
-
-            var token = jwtHelper.GetToken(authViewModel.EmailAddress);
-
-            if (string.IsNullOrEmpty(token))
+            if (ModelState.IsValid)
             {
-                return Unauthorized();
+                var result = _userService.GetUser(authViewModel.EmailAddress);
+
+                if (result == null)
+                {
+                    token = _tokenService.GetToken(authViewModel.EmailAddress);
+
+                    if (string.IsNullOrEmpty(token["Token"].ToString()))
+                    {
+                        return Unauthorized();
+                    }
+                }
             }
 
             return Ok(token);

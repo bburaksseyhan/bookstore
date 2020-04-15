@@ -18,9 +18,13 @@ namespace BookStore.Application.ViewModel
 
         public string Token { get; set; }
 
-        public int ExpiredDate { get; set; }
+        public DateTime ExpiredDate { get; set; }
+
+        public string RefresToken { get; set; }
 
         public bool IsActive { get; set; }
+
+        public string RefreshToken { get; set; }
 
         public DateTime CreatedDate { get; set; }
 

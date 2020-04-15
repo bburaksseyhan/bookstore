@@ -1,9 +1,10 @@
-﻿
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace BookStore.Domain.Models
 {
-    public class User
+   public  class User
     {
         public int Id { get; set; }
 
@@ -19,7 +20,9 @@ namespace BookStore.Domain.Models
 
         public string Token { get; set; }
 
-        public int ExpiredDate { get; set; }
+        public DateTime ExpiredDate { get; set; }
+
+        public string RefreshToken { get; set; }
 
         public bool IsActive { get; set; }
 

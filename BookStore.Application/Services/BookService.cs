@@ -15,7 +15,9 @@ namespace BookStore.Application.Services
         private readonly IMediatorHandler _bus;
         private readonly IMapper _autoMapper;
 
-        public BookService(IBookRepository bookRepository, IMediatorHandler bus, IMapper autoMapper)
+        public BookService(IBookRepository bookRepository, 
+                           IMediatorHandler bus,
+                           IMapper autoMapper)
         {
             _bookRepository = bookRepository;
             _bus = bus;

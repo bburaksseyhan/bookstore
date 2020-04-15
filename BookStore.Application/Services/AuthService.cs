@@ -5,7 +5,6 @@ using BookStore.Application.ViewModel;
 using BookStore.Core.Bus;
 using BookStore.Domain.Commands.AuthCommands;
 using BookStore.Domain.Interfaces;
-using BookStore.Domain.Models;
 
 namespace BookStore.Application.Services
 {
@@ -15,19 +14,13 @@ namespace BookStore.Application.Services
         private IMapper _autoMapper;
         private IMediatorHandler _bus;
 
-        public AuthService(IAuthRepository authRepository, IMapper autoMapper,IMediatorHandler bus)
+        public AuthService(IAuthRepository authRepository,
+                           IMapper autoMapper, 
+                           IMediatorHandler bus)
         {
             _authRepository = authRepository;
             _autoMapper = autoMapper;
             _bus = bus;
-        }
-
-        public GetUserViewModel GetUser(string emailAddress)
-        {
-            return new GetUserViewModel()
-            {
-                User = _authRepository.FindUser(emailAddress)
-            };
         }
 
         public SignInViewModel SignIn(string emailAddress, string password)

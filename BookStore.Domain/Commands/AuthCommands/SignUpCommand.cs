@@ -19,7 +19,9 @@ namespace BookStore.Domain.Commands.AuthCommands
 
         public string Token { get; protected set; }
 
-        public int ExpiredDate { get; protected set; }
+        public DateTime ExpiredDate { get; protected set; }
+
+        public string RefreshToken { get; set; }
 
         public bool IsActive { get; protected set; }
 

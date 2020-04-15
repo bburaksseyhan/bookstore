@@ -1,6 +1,7 @@
 ﻿using BookStore.Domain.Interfaces;
 using BookStore.Domain.Models;
 using BookStore.Infrastructure.Data.Context;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
 namespace BookStore.Infrastructure.Data.Repository
@@ -8,29 +9,22 @@ namespace BookStore.Infrastructure.Data.Repository
     public class AuthRepository : IAuthRepository
     {
         private readonly BookStoreDBContext _context;
+        private readonly IUserRepository _userRepository;
 
-        public AuthRepository(BookStoreDBContext context)
+        public AuthRepository(BookStoreDBContext context, IUserRepository userRepository)
         {
             _context = context;
+            _userRepository = userRepository;
         }
 
-        public User FindUser(string emailAddress, string password)
+        public string GetUserToken(string refreshToken)
         {
-            return _context.Users
-                           .Where(e => e.Email == emailAddress && e.Password == password)
-                           .FirstOrDefault();
-        }
-
-        public User FindUser(string emailAddress)
-        {
-            return _context.Users
-                           .Where(e => e.Email == emailAddress)
-                           .FirstOrDefault();
+            return _context.Users.FirstOrDefault(x => x.RefreshToken == refreshToken).RefreshToken;
         }
 
         public bool SignIn(string emailAddress, string password)
         {
-            var getOne = FindUser(emailAddress, password);
+            var getOne = _userRepository.FindUser(emailAddress, password);
 
             if (getOne == null)
                 return false;
@@ -52,7 +46,7 @@ namespace BookStore.Infrastructure.Data.Repository
                 return false;
             }
 
-            var getOne = FindUser(user.Email, user.Password);
+            var getOne = _userRepository.FindUser(user.Email, user.Password);
 
             if (getOne == null)
             {

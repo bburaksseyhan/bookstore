@@ -28,11 +28,15 @@ namespace BookStore.Infrastructure.IoC
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<IBookService, BookService>();
             services.AddScoped<IAuthService, AuthService>();
+            services.AddScoped<ITokenService, TokenService>();
+            services.AddScoped<IUserRepository, UserRepository>();
 
             //Data Layer
             services.AddScoped<IAuthRepository, AuthRepository>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IBookRepository, BookRepository>();
+            services.AddScoped<ITokenRepository, TokenRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<BookStoreDBContext>();
         }
     }
