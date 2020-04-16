@@ -1,7 +1,10 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using BookStore.Application.Interfaces;
-using BookStore.Application.ViewModel;
+using BookStore.Application.Request.CategoryRequest;
+using BookStore.Application.Request.CategoryResponse;
+using BookStore.Application.Request.CreateRequest;
+using BookStore.Application.Response;
 using BookStore.Core.Bus;
 using BookStore.Domain.CategoryCommands.Commands;
 using BookStore.Domain.Interfaces;

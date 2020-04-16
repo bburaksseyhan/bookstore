@@ -1,10 +1,12 @@
 ﻿namespace BookStore.Domain.Models
 {
-    public class Book
+    public class Book : BaseModel
     {
         public int Id { get; set; }
 
         public int CategoryId { get; set; }
+
+        public int CompanyId { get; set; }
 
         public string ISBN { get; set; }
 

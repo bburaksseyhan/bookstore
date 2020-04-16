@@ -1,6 +1,6 @@
 ﻿namespace BookStore.Domain.Models
 {
-    public class Category
+    public class Category : BaseModel
     {
         public int Id { get; set; }
 

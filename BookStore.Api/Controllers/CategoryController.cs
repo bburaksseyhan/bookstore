@@ -1,6 +1,6 @@
 ﻿using BookStore.Api.Configurations;
 using BookStore.Application.Interfaces;
-using BookStore.Application.ViewModel;
+using BookStore.Application.Request.CreateRequest;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 

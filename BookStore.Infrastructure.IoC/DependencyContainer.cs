@@ -39,6 +39,7 @@ namespace BookStore.Infrastructure.IoC
             services.AddScoped<IBookRepository, BookRepository>();
             services.AddScoped<ITokenRepository, TokenRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<ICompanyRepository, CompanyRepository>();
             services.AddScoped<BookStoreDBContext>();
         }
     }

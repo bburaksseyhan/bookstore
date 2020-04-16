@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
-using BookStore.Application.Response;
-using BookStore.Application.Response.BookViewModel;
-using BookStore.Application.ViewModel;
+using BookStore.Application.Request.CategoryRequest;
+using BookStore.Application.Request.CreateRequest;
+using BookStore.Application.Request.SignupRequest;
+using BookStore.Application.Requet.BookRequest;
+using BookStore.Application.Response.BookResponse;
 using BookStore.Domain.Models;
 
 namespace BookStore.Application.AutoMapper

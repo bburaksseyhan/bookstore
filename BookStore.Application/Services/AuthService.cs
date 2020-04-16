@@ -1,13 +1,10 @@
 ﻿using AutoMapper;
 
 using BookStore.Application.Interfaces;
-using BookStore.Application.ViewModel;
+using BookStore.Application.Request.SignupRequest;
 using BookStore.Core.Bus;
 using BookStore.Domain.Commands.AuthCommands;
 using BookStore.Domain.Interfaces;
-using System;
-using System.Security.Cryptography;
-using System.Text;
 
 namespace BookStore.Application.Services
 {

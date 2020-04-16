@@ -1,5 +1,5 @@
 ﻿using BookStore.Application.Interfaces;
-using BookStore.Application.ViewModel;
+using BookStore.Application.Request.UserRequest;
 using BookStore.Domain.Interfaces;
 
 namespace BookStore.Application.Services

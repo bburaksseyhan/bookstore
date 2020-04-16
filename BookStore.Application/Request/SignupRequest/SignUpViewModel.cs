@@ -1,6 +1,5 @@
-﻿using System;
-
-namespace BookStore.Application.ViewModel
+﻿
+namespace BookStore.Application.Request.SignupRequest
 {
     public class SignUpViewModel
     {

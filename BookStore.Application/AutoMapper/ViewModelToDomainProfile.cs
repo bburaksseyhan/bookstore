@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
-using BookStore.Application.ViewModel;
+using BookStore.Application.Request.CreateRequest;
+using BookStore.Application.Request.SignupRequest;
+using BookStore.Application.Requet.BookRequest;
 using BookStore.Domain.BookCommands.Commands;
 using BookStore.Domain.CategoryCommands.Commands;
 using BookStore.Domain.Commands.AuthCommands;

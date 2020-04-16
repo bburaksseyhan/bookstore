@@ -1,4 +1,4 @@
-﻿using BookStore.Application.ViewModel;
+﻿using BookStore.Application.Request.SignupRequest;
 
 namespace BookStore.Application.Interfaces
 {

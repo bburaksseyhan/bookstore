@@ -2,7 +2,7 @@
 
 namespace BookStore.Domain.Models
 {
-   public  class User
+   public  class User : BaseModel
     {
         public int Id { get; set; }
 
@@ -21,13 +21,5 @@ namespace BookStore.Domain.Models
         public string RefreshToken { get; set; }
 
         public DateTime ExpiredDate { get; set; }
-
-        public bool IsActive { get; set; }
-
-        public DateTime? CreatedDate { get; set; }
-
-        public DateTime? DeletedDate { get; set; }
-
-        public DateTime? UpdateDate { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿using BookStore.Application.Response.BookViewModel;
+﻿using BookStore.Application.Response.BookResponse;
 
 namespace BookStore.Application.Interfaces
 {

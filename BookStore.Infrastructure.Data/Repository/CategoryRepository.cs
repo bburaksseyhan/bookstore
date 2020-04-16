@@ -24,6 +24,11 @@ namespace BookStore.Infrastructure.Data.Repository
             return _context.Categories.Where(x => x.Id == id).FirstOrDefault();
         }
 
+        public bool Edit(int id, Category item)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public IQueryable<Category> GetAll()
         {
             return _context.Categories;

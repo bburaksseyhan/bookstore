@@ -1,6 +1,4 @@
-﻿using AutoMapper;
-using BookStore.Application.Interfaces;
-using BookStore.Application.ViewModel;
+﻿using BookStore.Application.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,9 +14,9 @@ namespace BookStore.Mvc.Controllers
             _bookService = bookService;
         }
 
-        //public IActionResult Index()
-        //{
-        //    return View(_bookService.GetAll());
-        //}
+        public IActionResult Index()
+        {
+            return View(_bookService.GetAll());
+        }
     }
 }

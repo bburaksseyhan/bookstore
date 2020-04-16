@@ -2,7 +2,7 @@
 using AutoMapper.QueryableExtensions;
 using BookStore.Application.Interfaces;
 using BookStore.Application.Response;
-using BookStore.Application.Response.BookViewModel;
+using BookStore.Application.Response.BookResponse;
 using BookStore.Core.Bus;
 using BookStore.Domain.BookCommands.Commands;
 using BookStore.Domain.Interfaces;

@@ -24,6 +24,11 @@ namespace BookStore.Infrastructure.Data.Repository
             return _context.Books.Where(x => x.Id == id).FirstOrDefault();
         }
 
+        public bool Edit(int id, Book item)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public IQueryable<Book> GetAll()
         {
             return _context.Books;

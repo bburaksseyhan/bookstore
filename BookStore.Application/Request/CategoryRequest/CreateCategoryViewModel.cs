@@ -1,4 +1,4 @@
-﻿namespace BookStore.Application.ViewModel
+﻿namespace BookStore.Application.Request.CreateRequest
 {
     public class CreateCategoryViewModel
     {

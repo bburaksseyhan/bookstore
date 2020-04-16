@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BookStore.Application.ViewModel
+namespace BookStore.Application.Request.UserRequest
 {
     public class UpdateUserViewModel
     {

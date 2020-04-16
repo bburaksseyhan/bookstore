@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace BookStore.Application.Interfaces
 {
-    public interface IBaseService<T, K>
+    public interface IBaseService<T, K> where T : new()
     {
         IEnumerable<T> GetAll();
 

@@ -1,7 +1,9 @@
-﻿namespace BookStore.Application.ViewModel
+﻿namespace BookStore.Application.Response.BookResponse
 {
-    public class CreateBookViewModel
+    public class BooksViewModel
     {
+        public int Id { get; set; }
+
         public int CategoryId { get; set; }
 
         public string ISBN { get; set; }

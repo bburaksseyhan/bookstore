@@ -2,7 +2,7 @@
 
 namespace BookStore.Domain.Interfaces
 {
-    public interface ICategoryRepository : IBaseRepository<Category>
+    public interface ICategoryRepository : IBaseRepository<Category, int>
     {
     }
 }

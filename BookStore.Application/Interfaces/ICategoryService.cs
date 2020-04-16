@@ -1,4 +1,7 @@
-﻿using BookStore.Application.ViewModel;
+﻿using BookStore.Application.Request.CategoryRequest;
+using BookStore.Application.Request.CategoryResponse;
+using BookStore.Application.Request.CreateRequest;
+using BookStore.Application.Response;
 using System.Collections.Generic;
 
 namespace BookStore.Application.Interfaces

@@ -1,6 +1,6 @@
 ﻿using BookStore.Domain.Models;
 
-namespace BookStore.Application.ViewModel
+namespace BookStore.Application.Request.CategoryResponse
 {
     public class CategoryDetailsViewModel
     {

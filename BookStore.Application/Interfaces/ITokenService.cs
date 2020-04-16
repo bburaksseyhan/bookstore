@@ -1,4 +1,4 @@
-﻿using BookStore.Application.ViewModel;
+﻿using BookStore.Application.Request.UserRequest;
 using System.Collections.Generic;
 
 namespace BookStore.Application.Interfaces

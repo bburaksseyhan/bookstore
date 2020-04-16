@@ -1,5 +1,5 @@
 ﻿
-namespace BookStore.Application.ViewModel
+namespace BookStore.Application.Request.CategoryRequest
 {
     public class GetCategoryViewModel
     {

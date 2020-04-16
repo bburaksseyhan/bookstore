@@ -1,5 +1,7 @@
 ﻿using BookStore.Application.Interfaces;
-using BookStore.Application.ViewModel;
+using BookStore.Application.Request.SigninRequest;
+using BookStore.Application.Request.SignupRequest;
+using BookStore.Application.Request.UserRequest;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -46,11 +48,11 @@ namespace BookStore.Api.Controllers
 
         [HttpPost]
         [Route("signin")]
-        public IActionResult SignIn(string email, string password)
+        public IActionResult SignIn([FromBody] SignInViewModel signInViewModel)
         {
             var tokenDictionary = new Dictionary<string, object>();
 
-            var user = _userService.GetUser(email, password);
+            var user = _userService.GetUser(signInViewModel.EmailAddress, signInViewModel.Password);
 
             if (user.User == null)
             {

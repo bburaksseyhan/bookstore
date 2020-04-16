@@ -1,10 +1,10 @@
-﻿namespace BookStore.Application.Response.BookViewModel
+﻿namespace BookStore.Application.Requet.BookRequest
 {
-    public class BooksViewModel
+    public class CreateBookViewModel
     {
-        public int Id { get; set; }
-
         public int CategoryId { get; set; }
+
+        public int CompanyId { get; set; }
 
         public string ISBN { get; set; }
 
