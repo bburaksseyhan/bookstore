@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BookStore.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(BookStoreDBContext))]
-    [Migration("20200416093937_InitialMigration")]
+    [Migration("20200417073606_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -61,10 +61,13 @@ namespace BookStore.Infrastructure.Data.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<string>("Publisher")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("UpdateDate")
+                    b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
@@ -94,7 +97,7 @@ namespace BookStore.Infrastructure.Data.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("UpdateDate")
+                    b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
@@ -132,7 +135,7 @@ namespace BookStore.Infrastructure.Data.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("UpdateDate")
+                    b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("UserId")
@@ -141,6 +144,39 @@ namespace BookStore.Infrastructure.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Companies");
+                });
+
+            modelBuilder.Entity("BookStore.Domain.Models.Discount", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("BookId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<decimal?>("NewPrice")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Discounts");
                 });
 
             modelBuilder.Entity("BookStore.Domain.Models.User", b =>
@@ -177,13 +213,10 @@ namespace BookStore.Infrastructure.Data.Migrations
                     b.Property<string>("RePassword")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("RefreshToken")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Token")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("UpdateDate")
+                    b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");

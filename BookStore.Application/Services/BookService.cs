@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using BookStore.Application.Interfaces;
+using BookStore.Application.Requet.BookRequest;
 using BookStore.Application.Response;
 using BookStore.Application.Response.BookResponse;
 using BookStore.Core.Bus;
@@ -25,7 +26,7 @@ namespace BookStore.Application.Services
             _autoMapper = autoMapper;
         }
 
-        public void Add(BooksViewModel categoryViewModel)
+        public void Add(CreateBookViewModel categoryViewModel)
         {
             var createBookCommand = new CreateBookCommand(
                   categoryId: categoryViewModel.CategoryId,
@@ -35,7 +36,8 @@ namespace BookStore.Application.Services
                   author: categoryViewModel.Author,
                   publisher: categoryViewModel.Publisher,
                   description: categoryViewModel.Description,
-                  imageUrl: categoryViewModel.ImageUrl
+                  imageUrl: categoryViewModel.ImageUrl,
+                  price: categoryViewModel.Price
                 );
 
             _bus.SendCommand(createBookCommand);
@@ -43,19 +45,19 @@ namespace BookStore.Application.Services
             //_bus.SendCommand(_autoMapper.Map<CreateBookCommand>(categoryViewModel));
         }
 
-        public BaseResponse<BooksViewModel> Detail(int id)
+        public BaseResponse<GetBooksViewModel> Detail(int id)
         {
             var detail = _bookRepository.Detail(id);
 
-            return new BaseResponse<BooksViewModel>()
+            return new BaseResponse<GetBooksViewModel>()
             {
-                Data = _autoMapper.Map<BooksViewModel>(detail)
+                Data = _autoMapper.Map<GetBooksViewModel>(detail)
             };
         }
 
-        public IEnumerable<BooksViewModel> GetAll()
+        public IEnumerable<GetBooksViewModel> GetAll()
         {
-            return _bookRepository.GetAll().ProjectTo<BooksViewModel>(_autoMapper.ConfigurationProvider);
+            return _bookRepository.GetAll().ProjectTo<GetBooksViewModel>(_autoMapper.ConfigurationProvider);
         }
 
         public BaseResponse<bool> Remove(int id)

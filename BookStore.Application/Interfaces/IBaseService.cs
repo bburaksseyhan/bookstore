@@ -3,14 +3,14 @@ using System.Collections.Generic;
 
 namespace BookStore.Application.Interfaces
 {
-    public interface IBaseService<T, K> where T : new()
+    public interface IBaseService<RequestParam, ResponseParam, Id> where RequestParam : new()
     {
-        IEnumerable<T> GetAll();
+        IEnumerable<ResponseParam> GetAll();
 
-        void Add(T item);
+        void Add(RequestParam item);
 
-        BaseResponse<bool> Remove(K id);
+        BaseResponse<bool> Remove(Id id);
 
-        BaseResponse<T> Detail(K id);
+        BaseResponse<ResponseParam> Detail(Id id);
     }
 }

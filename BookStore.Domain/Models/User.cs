@@ -18,8 +18,6 @@ namespace BookStore.Domain.Models
 
         public string Token { get; set; }
 
-        public string RefreshToken { get; set; }
-
         public DateTime ExpiredDate { get; set; }
     }
 }

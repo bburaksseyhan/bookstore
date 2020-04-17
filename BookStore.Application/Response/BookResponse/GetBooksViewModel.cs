@@ -1,6 +1,6 @@
 ﻿namespace BookStore.Application.Response.BookResponse
 {
-    public class BooksViewModel
+    public class GetBooksViewModel
     {
         public int Id { get; set; }
 

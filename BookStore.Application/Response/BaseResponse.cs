@@ -1,11 +1,6 @@
 ﻿namespace BookStore.Application.Response
 {
-    public class BaseResponse
-    {
-     
-    }
-
-    public class BaseResponse<T> : BaseResponse
+    public class BaseResponse<T>
     {
         public T Data { get; set; }
 

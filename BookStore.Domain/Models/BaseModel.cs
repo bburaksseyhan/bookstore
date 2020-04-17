@@ -12,6 +12,6 @@ namespace BookStore.Domain.Models
 
         public DateTime? DeletedDate { get; set; }
 
-        public DateTime? UpdateDate { get; set; }
+        public DateTime? UpdatedDate { get; set; }
     }
 }

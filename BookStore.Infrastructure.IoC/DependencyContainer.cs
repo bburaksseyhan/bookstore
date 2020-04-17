@@ -5,6 +5,7 @@ using BookStore.Domain.BookCommands.Commands;
 using BookStore.Domain.CategoryCommands.Commands;
 using BookStore.Domain.CommandHandlers;
 using BookStore.Domain.Commands.AuthCommands;
+using BookStore.Domain.Commands.CompanyCommands;
 using BookStore.Domain.Interfaces;
 using BookStore.Infrastructure.Bus;
 using BookStore.Infrastructure.Data.Context;
@@ -25,6 +26,7 @@ namespace BookStore.Infrastructure.IoC
             services.AddScoped<IRequestHandler<CreateCategoryCommand, bool>, CategoryCommandHandler>();
             services.AddScoped<IRequestHandler<CreateBookCommand, bool>, BookCommandHandler>();
             services.AddScoped<IRequestHandler<CreateUserCommand, bool>, SignupCommandHandler>();
+            services.AddScoped<IRequestHandler<CreateCompanyCommand, bool>, CompanyCommandHandler>();
 
             //Application Layer
             services.AddScoped<ICategoryService, CategoryService>();
@@ -32,6 +34,7 @@ namespace BookStore.Infrastructure.IoC
             services.AddScoped<IAuthService, AuthService>();
             services.AddScoped<ITokenService, TokenService>();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<ICompanyService, CompanyService>();
 
             //Data Layer
             services.AddScoped<IAuthRepository, AuthRepository>();
@@ -40,6 +43,7 @@ namespace BookStore.Infrastructure.IoC
             services.AddScoped<ITokenRepository, TokenRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<ICompanyRepository, CompanyRepository>();
+
             services.AddScoped<BookStoreDBContext>();
         }
     }

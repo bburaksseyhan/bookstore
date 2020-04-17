@@ -27,7 +27,8 @@ namespace BookStore.Domain.CommandHandlers
                 ISBN = request.ISBN,
                 ImageUrl = request.ImageUrl,
                 Language = request.Language,
-                Publisher = request.Publisher
+                Publisher = request.Publisher,
+                Price = request.Price
             };
 
             _bookRepository.Add(book);

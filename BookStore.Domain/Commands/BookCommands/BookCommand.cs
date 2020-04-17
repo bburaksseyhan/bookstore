@@ -1,4 +1,5 @@
 ﻿using BookStore.Core.Commands;
+using System;
 
 namespace BookStore.Domain.BookCommands.Commands
 {
@@ -21,5 +22,9 @@ namespace BookStore.Domain.BookCommands.Commands
         public string Description { get; protected set; }
 
         public string ImageUrl { get; protected set; }
+
+        public decimal Price { get; protected set; }
+
+        public DateTime CreatedDate { get; protected set; }
     }
 }

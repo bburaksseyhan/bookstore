@@ -2,7 +2,6 @@
 using AutoMapper.QueryableExtensions;
 using BookStore.Application.Interfaces;
 using BookStore.Application.Request.CategoryRequest;
-using BookStore.Application.Request.CategoryResponse;
 using BookStore.Application.Request.CreateRequest;
 using BookStore.Application.Response;
 using BookStore.Core.Bus;
@@ -28,30 +27,32 @@ namespace BookStore.Application.Services
             _autoMapper = autoMapper;
         }
 
-        public void Create(CreateCategoryViewModel categoryViewModel)
+        public void Add(CreateCategoryViewModel categoryViewModel)
         {
             _bus.SendCommand(_autoMapper.Map<CreateCategoryCommand>(categoryViewModel));
         }
 
-        public BaseDeleteViewModel DeleteCategory(int id)
+        public IEnumerable<GetCategoryViewModel> GetAll()
         {
-            return new BaseDeleteViewModel()
+            return _categoryRepository.GetAll()
+                                       .ProjectTo<GetCategoryViewModel>(_autoMapper.ConfigurationProvider);
+        }
+
+        public BaseResponse<GetCategoryViewModel> Detail(int id)
+        {
+            var data = _categoryRepository.Detail(id);
+
+            return new BaseResponse<GetCategoryViewModel>()
             {
-                 IsDeleted = _categoryRepository.Remove(id)
+                Data = _autoMapper.Map<GetCategoryViewModel>(data)
             };
         }
 
-        public IEnumerable<GetCategoryViewModel> GetCategories()
+        public BaseResponse<bool> Remove(int id)
         {
-            return _categoryRepository.GetAll()
-                                      .ProjectTo<GetCategoryViewModel>(_autoMapper.ConfigurationProvider);
-        }
-
-        public CategoryDetailsViewModel GetCategory(int id)
-        {
-            return new CategoryDetailsViewModel()
+            return new BaseResponse<bool>()
             {
-                Category = _categoryRepository.Detail(id)
+                IsSuccess = _categoryRepository.Remove(id)
             };
         }
     }

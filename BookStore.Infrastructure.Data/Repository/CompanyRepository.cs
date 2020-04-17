@@ -17,8 +17,15 @@ namespace BookStore.Infrastructure.Data.Repository
 
         public void Add(Company item)
         {
-            _context.Add(item);
-            _context.SaveChanges();
+            try
+            {
+                _context.Companies.Add(item);
+                _context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
 
         public Company Detail(Guid id)

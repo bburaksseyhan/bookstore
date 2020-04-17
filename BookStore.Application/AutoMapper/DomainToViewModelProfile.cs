@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using BookStore.Application.Request.CategoryRequest;
+using BookStore.Application.Request.CompanyRequest;
+using BookStore.Application.Request.CompanyResponse;
 using BookStore.Application.Request.CreateRequest;
 using BookStore.Application.Request.SignupRequest;
 using BookStore.Application.Requet.BookRequest;
@@ -18,10 +20,14 @@ namespace BookStore.Application.AutoMapper
 
             //book mapper
             CreateMap<Book, CreateBookViewModel>();
-            CreateMap<Book, BooksViewModel>();
+            CreateMap<Book, GetBooksViewModel>();
 
             //user mapper
             CreateMap<User, SignUpViewModel>();
+
+            //Company mapper
+            CreateMap<Company, CreateCompanyViewModel>();
+            CreateMap<Company, CompanyViewModel>();
         }
     }
 }

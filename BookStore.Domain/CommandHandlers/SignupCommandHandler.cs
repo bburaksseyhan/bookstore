@@ -31,7 +31,7 @@ namespace BookStore.Domain.CommandHandlers
                 IsActive = request.IsActive,
                 CreatedDate = request.CreatedDate,
                 DeletedDate = request.DeletedDate,
-                UpdateDate = request.UpdateDate
+                UpdatedDate = request.UpdateDate
             };
 
             _authRepository.SignUp(user);

@@ -1,6 +1,6 @@
 ﻿using BookStore.Api.Configurations;
 using BookStore.Application.Interfaces;
-using BookStore.Application.Response.BookResponse;
+using BookStore.Application.Requet.BookRequest;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -27,11 +27,29 @@ namespace BookStore.Api.Controllers
         [Authorize]
         [HttpPost]
         [Route(RouteConfig.Book.Create)]
-        public IActionResult Post([FromBody] BooksViewModel createBookViewModel)
+        public IActionResult Post([FromBody] CreateBookViewModel createBookViewModel)
         {
             _bookService.Add(createBookViewModel);
 
             return Ok(createBookViewModel);
+        }
+
+        [HttpPost]
+        [Route(RouteConfig.Book.Delete)]
+        public IActionResult Delete([FromHeader]int bookId)
+        {
+            var result = _bookService.Remove(bookId);
+
+            return Ok(result);
+        }
+
+        [HttpPost]
+        [Route(RouteConfig.Book.Detail)]
+        public IActionResult Detail([FromHeader]int bookId)
+        {
+            var result = _bookService.Detail(bookId);
+
+            return Ok(result);
         }
     }
 }
